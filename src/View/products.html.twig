@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bonjour</title>
+    <link rel="icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+    <table>
+        {% set increment = 0 %}
+        {% for i in 0..products|length %}
+            <tr>
+                {% for key, product in products|slice(increment, increment + 3) %}
+                    
+                        <td>{{ product }}</td>
+                        {% set increment = increment + 1 %}
+                        
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    {{dump(products)}}
+</body>
+</html>
